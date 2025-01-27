@@ -73,6 +73,7 @@ const DragAndDropUpload: React.FC = () => {
                     type="file"
                     className="hidden"
                     multiple
+                    accept=".csv"
                     onChange={handleFileInputChange}
                 />
 

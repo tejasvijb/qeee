@@ -1,3 +1,5 @@
+'use client'
+import { useAuth } from "@/app/context/AuthContext";
 import { Button } from "@/components/ui/button";
 import { Mulish } from "next/font/google";
 
@@ -11,12 +13,18 @@ const mullish = Mulish({
 
 export default function Result() {
 
+    const { signOut } = useAuth()
+
+    const onSignOut = () => {
+        signOut()
+    }
+
 
 
     return (
 
-        <div className="h-screen max-sm:h-auto bg-[rgb(170,198,255)] p-10">
-            <div className="flex flex-col h-full bg-white">
+        <div className="min-h-screen max-sm:h-auto bg-[rgb(170,198,255)] p-10">
+            <div className="flex flex-col h-full bg-white ">
 
                 <div className="gap-10 h-full rounded-3xl px-10 py-4">
 
@@ -34,7 +42,7 @@ export default function Result() {
                     </div>
                 </div>
                 <div className="flex justify-end w-full mt-auto p-4">
-                    <Link href={"/auth/signin"}><Button className="bg-[#0047FF] text-center font-semibold text-xl max-sm:w-full">Logout</Button></Link>
+                    <Link href={"/auth/signin"}><Button onClick={onSignOut} className="bg-[#0047FF] text-center font-semibold text-xl max-sm:w-full">Logout</Button></Link>
                 </div>
             </div>
 

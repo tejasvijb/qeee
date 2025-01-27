@@ -28,6 +28,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { toast } from "@/hooks/use-toast"
 import { Checkbox } from "@/components/ui/checkbox";
+import { useAuth } from "@/app/context/AuthContext";
 
 const FormSchema = z.object({
     email: z.string().email({
@@ -40,6 +41,7 @@ const FormSchema = z.object({
 
 export default function Signin() {
     const router = useRouter()
+    const { signIn } = useAuth()
 
 
     const form = useForm<z.infer<typeof FormSchema>>({
@@ -65,15 +67,20 @@ export default function Signin() {
     }
 
 
+    const onSignin = () => {
+
+        signIn()
+    }
+
     return (
-        <div className="bg-white bg-opacity-80 rounded-xl p-10 w-[450px]">
+        <div className="bg-white bg-opacity-80 rounded-xl p-10 w-[450px] my-4">
             <div className="flex flex-col items-center justify-center mb-8">
-                <h1 className={`${mullish.variable} font-bold text-3xl`}>Log In to Qeee</h1>
+                <h1 className={`${mullish.variable} font-bold text-3xl`}>Log In </h1>
                 <p className="text-sm text-slate-400">Quick & Simple way to Automate your .........</p>
             </div>
 
             <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2">
                     <FormField
                         control={form.control}
                         name="email"
@@ -115,7 +122,7 @@ export default function Signin() {
                         <Button variant={"link"} type="button">Forgot password?</Button>
                     </div>
 
-                    <Button className="w-full" type="submit">PROCEED</Button>
+                    <Button onClick={() => onSignin()} className="w-full" type="submit">PROCEED</Button>
 
                 </form>
                 <p className="text-sm text-slate-500 mt-2">Don't have an account? <Button onClick={() => router.push('/auth/signup')} variant={"link"}>Click here</Button></p>

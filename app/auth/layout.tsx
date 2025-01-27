@@ -10,7 +10,7 @@ export default function AuthLayout({
 }: {
     children: React.ReactNode
 }) {
-    return <div className="h-screen max-sm:h-auto w-screen bg-[url('/steth.png')] bg-cover bg-center">
+    return <div className="min-h-screen max-sm:h-auto w-screen bg-[url('/steth.png')] bg-cover bg-center">
         <div className="h-full max-sm:h-auto flex flex-col">
             <div className="flex justify-center">
                 <h1 className={`${mullish.variable} mt-4 p-8 text-center max-sm:font-medium max-sm:text-3xl max-sm:mx-4 bg-white bg-opacity-40 rounded-xl text-[#4133FF] border border-gray-500 font-bold text-6xl`}>

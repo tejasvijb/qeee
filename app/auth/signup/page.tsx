@@ -29,6 +29,7 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { toast } from "@/hooks/use-toast"
+import { useAuth } from "@/app/context/AuthContext";
 
 const FormSchema = z.object({
     username: z.string().min(2, {
@@ -44,6 +45,7 @@ const FormSchema = z.object({
 
 export default function Signup() {
     const router = useRouter()
+    const { signIn } = useAuth()
 
 
     const form = useForm<z.infer<typeof FormSchema>>({
@@ -68,16 +70,21 @@ export default function Signup() {
         router.push("/")
     }
 
+    const onSignin = () => {
+
+        signIn()
+    }
+
 
     return (
-        <div className="bg-white bg-opacity-80 rounded-xl p-10 w-[450px]">
+        <div className="bg-white bg-opacity-80 rounded-xl p-10 w-[450px] my-4">
             <div className="flex flex-col items-center justify-center mb-8">
                 <h1 className={`${mullish.variable} font-bold text-3xl`}>Sign up</h1>
                 <p className="text-sm text-slate-400">Quick & Simple way to Automate your .........</p>
             </div>
 
             <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2">
                     <FormField
                         control={form.control}
                         name="username"
@@ -118,7 +125,7 @@ export default function Signup() {
                         )}
                     />
 
-                    <div className="flex items-center space-x-2">
+                    <div className="flex items-center space-x-2 py-2">
                         <Checkbox id="terms" />
                         <label
                             htmlFor="terms"
@@ -128,7 +135,7 @@ export default function Signup() {
                         </label>
                     </div>
 
-                    <Button className="w-full" type="submit">CREATE AN ACCOUNT</Button>
+                    <Button onClick={() => onSignin()} className="w-full" type="submit">CREATE AN ACCOUNT</Button>
 
                 </form>
                 <p className="text-sm text-slate-500 mt-2">Already have an account? <Button onClick={() => router.push('/auth/signin')} variant={"link"}>Click here</Button></p>
