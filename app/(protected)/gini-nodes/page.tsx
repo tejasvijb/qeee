@@ -16,8 +16,8 @@ export default function GiniNodes() {
 
 
     return (
-        <div className="min-h-screen max-sm:h-auto bg-[rgb(170,198,255)] p-10">
-            <div className="flex flex-col h-full bg-white">
+        <div className="h-screen max-sm:h-auto bg-[rgb(170,198,255)] p-10 ">
+            <div className="grid grid-cols-1 h-full bg-white overflow-y-scroll">
 
                 <div className="grid grid-cols-3 gap-10 max-sm:grid-cols-1 h-full rounded-3xl px-10 py-4">
 
@@ -49,7 +49,7 @@ export default function GiniNodes() {
 
                     </div>
                 </div>
-                <div className="flex justify-end w-full mt-auto p-4">
+                <div className="flex justify-end w-full mt-4 p-4">
                     <Link href={"/result"}><Button className="bg-[#0047FF] text-center font-semibold text-xl max-sm:w-full">Next</Button></Link>
                 </div>
             </div>

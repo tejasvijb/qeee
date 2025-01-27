@@ -80,7 +80,7 @@ const DragAndDropUpload: React.FC = () => {
             </div>
 
 
-            <div className="mt-4">
+            <div className="mt-4 overflow-y-auto">
                 <p className="font-semibold mb-4 text-[#676767]">Uploaded files</p>
                 {files.length > 0 && (
                     <ul className="list-disc text-left">

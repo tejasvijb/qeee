@@ -76,7 +76,7 @@ export default function Signin() {
         <div className="bg-white bg-opacity-80 rounded-xl p-10 w-[450px] my-4">
             <div className="flex flex-col items-center justify-center mb-8">
                 <h1 className={`${mullish.variable} font-bold text-3xl`}>Log In </h1>
-                <p className="text-sm text-slate-400">Quick & Simple way to Automate your .........</p>
+                <p className="text-sm text-slate-400">Quick & Simple way to Automate your systems</p>
             </div>
 
             <Form {...form}>
@@ -127,12 +127,6 @@ export default function Signin() {
                 </form>
                 <p className="text-sm text-slate-500 mt-2">Don't have an account? <Button onClick={() => router.push('/auth/signup')} variant={"link"}>Click here</Button></p>
 
-                <p className="my-3 text-center">OR</p>
-
-                <div className="flex justify-center gap-6">
-                    <Image src={'/google.png'} height={38} width={36} alt="google" />
-                    <Image src={'/apple.png'} height={36} width={36} alt="apple" />
-                </div>
             </Form>
 
 

@@ -79,12 +79,12 @@ export default function Signup() {
     return (
         <div className="bg-white bg-opacity-80 rounded-xl p-10 w-[450px] my-4">
             <div className="flex flex-col items-center justify-center mb-8">
-                <h1 className={`${mullish.variable} font-bold text-3xl`}>Sign up</h1>
-                <p className="text-sm text-slate-400">Quick & Simple way to Automate your .........</p>
+                <h1 className={`${mullish.variable} font-bold text-3xl`}>Register</h1>
+                <p className="text-sm text-slate-400">Quick & Simple way to Automate your systems</p>
             </div>
 
             <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2">
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
                     <FormField
                         control={form.control}
                         name="username"
@@ -125,27 +125,11 @@ export default function Signup() {
                         )}
                     />
 
-                    <div className="flex items-center space-x-2 py-2">
-                        <Checkbox id="terms" />
-                        <label
-                            htmlFor="terms"
-                            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                        >
-                            Accept terms and conditions
-                        </label>
-                    </div>
 
                     <Button onClick={() => onSignin()} className="w-full" type="submit">CREATE AN ACCOUNT</Button>
 
                 </form>
                 <p className="text-sm text-slate-500 mt-2">Already have an account? <Button onClick={() => router.push('/auth/signin')} variant={"link"}>Click here</Button></p>
-
-                <p className="my-3 text-center">OR</p>
-
-                <div className="flex justify-center gap-6">
-                    <Image src={'/google.png'} height={38} width={36} alt="google" />
-                    <Image src={'/apple.png'} height={36} width={36} alt="apple" />
-                </div>
             </Form>
 
 
