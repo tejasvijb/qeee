@@ -127,7 +127,7 @@ export default function Signin() {
                 </form>
                 <p className="text-sm text-slate-500 mt-2">Don't have an account? <Button onClick={() => router.push('/auth/signup')} variant={"link"}>Click here</Button></p>
 
-                <p className="my-8 text-center">OR</p>
+                <p className="my-3 text-center">OR</p>
 
                 <div className="flex justify-center gap-6">
                     <Image src={'/google.png'} height={38} width={36} alt="google" />
